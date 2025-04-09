@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Git y GitHub - Blog de Desarrollo</title>
+</head>
+
+<body>
+    <header>
+        <h1>Git y GitHub</h1>
+        <p><em>Flujo de trabajo y comandos esenciales</em></p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="git.html">Git y GitHub</a></li>
+            <li><a href="terminal.html">Comandos de Terminal</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Introducción a Git y GitHub</h2>
+            <hr>
+            <p><strong>Git</strong> es un sistema de control de versiones que permite a los desarrolladores colaborar en
+                proyectos. <strong>GitHub</strong> es una plataforma que aloja repositorios Git y facilita la
+                colaboración.</p>
+
+            <img src="image2.jpg" alt="Logotipos de Git y GitHub"  width="300">
+
+            <h3>¿Por qué usar Git?</h3>
+            <ul>
+                <li>Guarda todo el historial de cambios</li>
+                <li>Permite trabajar en equipo</li>
+                <li>Facilita la recuperación ante errores</li>
+                <li>Permite trabajar en diferentes ramas</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Flujo de trabajo básico con Git</h2>
+
+            <ol>
+                <li><strong>Inicializar</strong>: Crear un repositorio o clonar uno existente</li>
+                <li><strong>Modificar</strong>: Hacer cambios en los archivos</li>
+                <li><strong>Preparar</strong>: Seleccionar cambios para el próximo commit</li>
+                <li><strong>Confirmar</strong>: Guardar los cambios en el historial</li>
+                <li><strong>Sincronizar</strong>: Compartir cambios con el repositorio remoto</li>
+            </ol>
+
+            <h3>Áreas principales en Git</h3>
+            <table>
+                <tr>
+                    <th>Área</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>Working Directory</td>
+                    <td>Tu espacio de trabajo local</td>
+                </tr>
+                <tr>
+                    <td>Staging Area</td>
+                    <td>Área donde preparas los cambios para el próximo commit</td>
+                </tr>
+                <tr>
+                    <td>Local Repository</td>
+                    <td>Registro local de todos los commits</td>
+                </tr>
+                <tr>
+                    <td>Remote Repository</td>
+                    <td>Versión del repositorio en GitHub</td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>Comandos básicos de Git</h2>
+
+            <h3>Configuración inicial</h3>
+            <pre>
+# Configurar nombre de usuario
+git config --global user.name "Tu Nombre"
+
+# Configurar correo electrónico
+git config --global user.email "tuemail@ejemplo.com"
+            </pre>
+
+            <h3>Crear y clonar repositorios</h3>
+            <pre>
+# Inicializar un nuevo repositorio
+git init
+
+# Clonar un repositorio existente
+git clone https://github.com/usuario/repositorio.git
+            </pre>
+
+            <h3>Gestión básica de cambios</h3>
+            <table>
+                <tr>
+                    <th>Comando</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td><code>git status</code></td>
+                    <td>Muestra el estado actual del repositorio</td>
+                </tr>
+                <tr>
+                    <td><code>git add</code></td>
+                    <td>Añade cambios al área de preparación</td>
+                </tr>
+                <tr>
+                    <td><code>git commit</code></td>
+                    <td>Confirma los cambios preparados</td>
+                </tr>
+                <tr>
+                    <td><code>git log</code></td>
+                    <td>Muestra el historial de commits</td>
+                </tr>
+            </table>
+
+            <h3>Sincronización con repositorios remotos</h3>
+            <pre>
+# Añadir un repositorio remoto
+git remote add origin https://github.com/usuario/repositorio.git
+
+# Subir cambios al repositorio remoto
+git push origin main
+
+# Traer cambios del repositorio remoto
+git pull origin main
+            </pre>
+        </section>
+
+        <section>
+            <h2>Trabajo con ramas en Git</h2>
+
+            <p>Las ramas son una característica poderosa de Git que permite desarrollo paralelo.</p>
+
+            <h3>Comandos para trabajar con ramas</h3>
+            <ul>
+                <li><strong>Listar ramas</strong>: <code>git branch</code></li>
+                <li><strong>Crear rama</strong>: <code>git branch nombre-rama</code></li>
+                <li><strong>Cambiar de rama</strong>: <code>git checkout nombre-rama</code></li>
+                <li><strong>Crear y cambiar</strong>: <code>git checkout -b nombre-rama</code></li>
+                <li><strong>Fusionar ramas</strong>: <code>git merge nombre-rama</code></li>
+            </ul>
+        </section>
+    </main>
+</body>
+
+</html>

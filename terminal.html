@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Comandos de Terminal - Blog de Desarrollo</title>
+</head>
+
+<body>
+    <header>
+        <h1>Comandos de Terminal</h1>
+        <p><em>Guía básica de comandos útiles</em></p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="git.html">Git y GitHub</a></li>
+            <li><a href="terminal.html">Comandos de Terminal</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Introducción a la Terminal</h2>
+            <hr>
+            <p>La <strong>terminal</strong> (o línea de comandos) es una forma de interactuar con la computadora
+                mediante texto. Aunque puede parecer intimidante al principio, es una herramienta muy poderosa para los
+                desarrolladores.</p>
+
+            <img src="comandos.jpg" alt="Terminal o línea de comandos" width="700">
+
+            <h3>¿Por qué usar la Terminal?</h3>
+            <ul>
+                <li>Es más rápida que la interfaz gráfica para muchas tareas</li>
+                <li>Permite automatizar tareas repetitivas</li>
+                <li>Es esencial para muchas herramientas de desarrollo</li>
+                <li>Funciona igual en diferentes sistemas operativos</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Comandos básicos de navegación</h2>
+
+            <p>Estos comandos te ayudan a moverte por las carpetas de tu computadora:</p>
+
+            <table>
+                <tr>
+                    <th>Comando</th>
+                    <th>Descripción</th>
+                    <th>Ejemplo</th>
+                </tr>
+                <tr>
+                    <td><code>pwd</code></td>
+                    <td>Muestra la carpeta actual</td>
+                    <td><code>pwd</code> → /home/usuario/documentos</td>
+                </tr>
+                <tr>
+                    <td><code>ls</code></td>
+                    <td>Lista archivos y carpetas</td>
+                    <td><code>ls</code> → archivo1.txt carpeta1 imagen.jpg</td>
+                </tr>
+                <tr>
+                    <td><code>cd</code></td>
+                    <td>Cambia de directorio</td>
+                    <td><code>cd carpeta1</code> → te lleva a carpeta1</td>
+                </tr>
+                <tr>
+                    <td><code>cd ..</code></td>
+                    <td>Sube un nivel</td>
+                    <td><code>cd ..</code> → te lleva a la carpeta superior</td>
+                </tr>
+                <tr>
+                    <td><code>clear</code></td>
+                    <td>Limpia la pantalla</td>
+                    <td><code>clear</code> → pantalla limpia</td>
+                </tr>
+            </table>
+
+            <h3>Ejemplos de uso</h3>
+            <pre>
+# Ver dónde estamos
+pwd
+
+# Ver los archivos en la carpeta actual
+ls
+
+# Ver archivos con más detalles
+ls -l
+
+# Cambiar a otra carpeta
+cd Documentos
+
+# Subir a la carpeta padre
+cd ..
+            </pre>
+        </section>
+
+        <section>
+            <h2>Consejos para principiantes</h2>
+
+            <ul>
+                <li>Usa la tecla TAB para autocompletar comandos y nombres de archivos</li>
+                <li>Usa las flechas arriba/abajo para navegar por comandos anteriores</li>
+                <li>Si no estás seguro de un comando, usa <code>man</code> para ver su manual</li>
+                <li>Ten cuidado con <code>rm</code>, no hay "papelera de reciclaje" en la terminal</li>
+            </ul>
+        </section>
+    </main>
+</body>
+
+</html>
