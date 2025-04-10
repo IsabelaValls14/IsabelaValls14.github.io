@@ -1,0 +1,51 @@
+body {
+    background-color: #999;
+    height: 100vh;
+    margin: 0;
+}
+
+div {
+    background-color: #13063b;
+    padding: 10px;
+}
+
+
+
+#gridContainer {
+    display: grid;
+    height: 100%;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    grid-gap: 10px;
+}
+
+#gridItem1 {
+    background-color: rgba(230, 29, 15, 0.888);
+
+}
+
+#gridItem2 {
+    background-color: rgba(221, 98, 36, 0.88);
+
+}
+
+#gridItem3 {
+    background-color: rgba(210, 116, 33, 0.801);
+
+}
+
+#gridItem4 {
+    background-color: rgb(18, 176, 86);
+
+}
+
+#gridItem5 {
+    background-color: rgb(76, 184, 123);
+
+}
+
+#gridItem6 {
+    background-color: rgb(18, 176, 144);
+
+}
