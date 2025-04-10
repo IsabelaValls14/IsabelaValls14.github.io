@@ -1,0 +1,114 @@
+/* Reset some basic default spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    line-height: 1.6;
+
+}
+
+header {
+    background-color: #2c3e50;
+    padding: 20px 0;
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav a {
+    color: #fff;
+}
+
+.mainIntro {
+    background-color: #a87927;
+    color: #fff;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.mainIntro p {
+    font-size: 15px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    padding-top: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.subscribe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 25px 20px;
+}
+
+.subscribe h3 {
+    padding-right: 50px;
+}
+
+.subscribe-form button {
+    padding: 0.3px 10px;
+    border: none;
+    background-color: #a87927;
+    color: #fff;
+    font-size: 13px;
+}
+
+.feature-item {
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    width: calc(33.333% - 40px);
+    min-width: 250px;
+}
+
+
+
+footer {
+    background-color: #34495e;
+    text-align: center;
+    padding: 20px;
+    color: #fff;
+    font-size: 14px;
+}
