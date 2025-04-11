@@ -1,19 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS</title>
+    <title>¿Qué es CSS?</title>
+    <link rel="stylesheet" href="blog_css.css">
 </head>
+
 <body>
     <header>
-    <h1>Blog CSS</h1>
-    <p><em>Recursos para Git, GitHub y Terminal</em></p>
+        <h1>¿Qué es CSS?</h1>
     </header>
-    <!-- Crea una nueva página a tu blog, donde describas qué es css, 
-     menciones qué son los selectores, las propiedades, y valores. 
-     También debe de incluir la diferencia entre selectores por tipo, 
-     clase, e identificador.
-     -->
+
+    <nav>
+        <ul>
+            <li><a href="../index.html">Menu Principal</a></li>
+            <li><a href="/Blog/index.html">Inicio Blog</a></li>
+        </ul>
+    </nav>
+
+    <section class="contenido">
+        <article class="article">
+            <h2>Introducción a CSS</h2>
+            <p>
+                CSS, o <strong>Cascading Style Sheets</strong> (Hojas de Estilo en Cascada), es un lenguaje utilizado
+                para definir y aplicar estilos a documentos HTML. Gracias a CSS se separa el contenido (HTML) de la
+                presentación visual, lo que permite modificar el estilo de un sitio web sin alterar su estructura.
+            </p>
+
+            <h3>¿Qué son los selectores en CSS?</h3>
+            <p>
+                Los <strong>selectores</strong> son patrones que se utilizan para seleccionar los elementos HTML a los
+                que se les aplicarán las reglas de estilo. Permiten determinar qué elementos serán afectados y definen
+                la manera en que se aplican los estilos.
+            </p>
+
+            <h3>Tipos de Selectores</h3>
+            <ul>
+                <li>
+                    <strong>Selector por tipo:</strong> Selecciona todos los elementos de un mismo tipo, como por
+                    ejemplo todos los párrafos (<code>p</code>).
+                    <em>Ejemplo:</em> <code>p { color: blue; }</code>
+                </li>
+                <li>
+                    <strong>Selector de clase:</strong> Aplica estilos a todos los elementos que tengan asignada una
+                    clase específica, identificada mediante un punto (<code>.clase</code>). Se puede reutilizar en
+                    varios elementos.
+                    <em>Ejemplo:</em> <code>.destacado { font-weight: bold; }</code>
+                </li>
+                <li>
+                    <strong>Selector de identificador:</strong> Se utiliza para aplicar estilos a un elemento único,
+                    identificado mediante la almohadilla (<code>#id</code>). Cada identificador debe ser único en la
+                    página.
+                    <em>Ejemplo:</em> <code>#principal { margin: 20px; }</code>
+                </li>
+            </ul>
+
+            <h3>Propiedades y Valores en CSS</h3>
+            <p>
+                En CSS, cada regla se compone de una o más <strong>propiedades</strong> y sus respectivos
+                <strong>valores</strong>. Una propiedad define qué aspecto se desea modificar (por ejemplo,
+                <code>color</code>, <code>font-size</code>, <code>margin</code>), y el valor asignado indica cómo se
+                aplicará ese cambio.
+                <br>
+                <em>Ejemplo:</em> <code>color: red;</code> indica que el color del texto será rojo.
+            </p>
+
+            <p>
+                La combinación adecuada de selectores, propiedades y valores permite aplicar estilos de forma precisa,
+                haciendo que la presentación del sitio web sea consistente y fácil de mantener.
+            </p>
+        </article>
+    </section>
+
+    <aside id="nota">
+        <p>
+            <strong>Nota:</strong> El uso de diferentes selectores (por tipo, clase e identificador) facilita la
+            organización y especificidad de los estilos, lo que es fundamental para el diseño y mantenimiento de sitios
+            web modernos.
+        </p>
+    </aside>
 </body>
+
 </html>
