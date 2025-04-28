@@ -14,3 +14,11 @@ const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
+
+app.get('/items', (req, res) => {
+  if (catalogoItems.length === 0) {
+    return res.status(404).json({ mensaje: 'No hay items en el catálogo' });
+  }
+  
+  res.json(catalogoItems);
+});
