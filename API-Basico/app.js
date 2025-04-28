@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
-// Esto permite que Express sirva archivos de /public
 app.use(express.static('public'));
 
 // Este endpoint sirve el archivo index.html cuando alguien visita "/"
