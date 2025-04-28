@@ -3,6 +3,14 @@ const app = express();
 const path = require('path');
 
 app.use(express.static('public'));
+app.use(express.json());
+
+let catalogoItems = [
+  { id: 1, nombre: 'Espada', tipo: 'Arma', efecto: 'Daño alto' },
+  { id: 2, nombre: 'Escudo', tipo: 'Defensa', efecto: 'Bloquea ataques' }];
+let usuarios = [
+  { id: 1, nombre: 'Isabela', correo: 'isabela@example.com', items: [1, 2] },
+  { id: 2, nombre: 'Fernando', correo: 'fernando@example.com', items: [2] }];
 
 // Este endpoint sirve el archivo index.html cuando alguien visita "/"
 app.get('/', (req, res) => {
@@ -21,4 +29,16 @@ app.get('/items', (req, res) => {
   }
   
   res.json(catalogoItems);
+});
+
+app.delete('/users/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const index = usuarios.findIndex(u => u.id === id);
+
+  if (index === -1) {
+    return res.status(404).json({ mensaje: `Usuario con ID ${id} no encontrado` });
+  }
+
+  usuarios.splice(index, 1);
+  res.json({ mensaje: `Usuario con ID ${id} eliminado correctamente` });
 });
