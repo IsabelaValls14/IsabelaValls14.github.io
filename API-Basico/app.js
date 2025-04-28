@@ -4,6 +4,8 @@ const path = require('path');
 
 app.use(express.static('public'));
 
+let catalogoItems = [];
+
 // Este endpoint sirve el archivo index.html cuando alguien visita "/"
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/html/index.html'));
