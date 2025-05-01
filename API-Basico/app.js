@@ -80,3 +80,14 @@ app.delete('/items/:id', (req, res) => {
   res.json({ mensaje: `Item con ID ${id} eliminado correctamente` });
 });
 
+
+app.patch('/items/:id', (req, res) => {
+  const { nombre, tipo, efecto } = req.body;
+
+  if (nombre) item.nombre = nombre;
+  if (tipo) item.tipo = tipo;
+  if (efecto) item.efecto = efecto;
+
+  res.json({ mensaje: `Item con ID ${id} actualizado correctamente`, item });
+});
+
