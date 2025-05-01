@@ -165,3 +165,14 @@ app.get('/users/:id', (req, res) => {
     items: itemsCompletos
   });
 });
+app.delete('/users/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const index = usuarios.findIndex(u => u.id === id);
+
+  if (index === -1) {
+    return res.status(404).json({ mensaje: `Usuario con ID ${id} no encontrado` });
+  }
+
+  usuarios.splice(index, 1);
+  res.json({ mensaje: `Usuario con ID ${id} eliminado correctamente` });
+});
