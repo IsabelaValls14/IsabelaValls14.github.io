@@ -57,17 +57,11 @@ testGetItemById(1);
 // Llama la función para probar eliminando el ID 1:
 testDeleteItemById(1);
 
-  function testPatchItemById(id) {
+function testPatchItemById(id) {
   fetch(`/items/${id}`, {
-    method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
       nombre: 'Espada legendaria',
       efecto: 'Daño masivo'
     })
-  })
     .then(response => response.json())
     .then(data => console.log(`PATCH /items/${id} response:`, data))
     .catch(error => console.error(`Error al hacer PATCH /items/${id}`, error));
@@ -75,7 +69,6 @@ testDeleteItemById(1);
 
 // Llama la función para probar actualizando el ID 1:
 testPatchItemById(1);
-
 
 function testPostUsers() {
   fetch('/users', {
@@ -134,3 +127,22 @@ testGetUserById(1);
 }
 
 testDeleteUserById(1);
+
+function testPatchUserById(id) {
+  fetch(`/users/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      nombre: 'Isabela Actualizada',
+      items: [2] // Solo actualizará los campos enviados
+    })
+  })
+    .then(response => response.json())
+    .then(data => console.log(`PATCH /users/${id} response:`, data))
+    .catch(error => console.error(`Error al hacer PATCH /users/${id}`, error));
+}
+
+testPatchUserById(2);
+

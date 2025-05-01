@@ -59,7 +59,6 @@ app.get('/items', (req, res) => {
   res.json(catalogoItems);
 });
 
-
 app.get('/items/:id', (req, res) => {
   const id = parseInt(req.params.id);
   const item = catalogoItems.find(i => i.id === id);
@@ -81,7 +80,6 @@ app.delete('/items/:id', (req, res) => {
   catalogoItems.splice(index, 1);
   res.json({ mensaje: `Item con ID ${id} eliminado correctamente` });
 });
-
 
 app.patch('/items/:id', (req, res) => {
   const { nombre, tipo, efecto } = req.body;
@@ -127,6 +125,7 @@ app.post('/users', (req, res) => {
 
   res.status(201).json({ mensaje: 'Usuarios agregados correctamente' });
 });
+
 app.get('/users', (req, res) => {
   if (usuarios.length === 0) {
     return res.status(404).json({ mensaje: 'No hay usuarios registrados' });
@@ -146,14 +145,8 @@ app.get('/users', (req, res) => {
 
   res.json(usuariosConItems);
 });
+
 app.get('/users/:id', (req, res) => {
-  const id = parseInt(req.params.id);
-  const usuario = usuarios.find(u => u.id === id);
-
-  if (!usuario) {
-    return res.status(404).json({ mensaje: `Usuario con ID ${id} no encontrado` });
-  }
-
   const itemsCompletos = usuario.items.map(itemId => {
     return catalogoItems.find(item => item.id === itemId);
   });
@@ -165,6 +158,7 @@ app.get('/users/:id', (req, res) => {
     items: itemsCompletos
   });
 });
+
 app.delete('/users/:id', (req, res) => {
   const id = parseInt(req.params.id);
   const index = usuarios.findIndex(u => u.id === id);
@@ -176,3 +170,30 @@ app.delete('/users/:id', (req, res) => {
   usuarios.splice(index, 1);
   res.json({ mensaje: `Usuario con ID ${id} eliminado correctamente` });
 });
+
+app.patch('/users/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const usuario = usuarios.find(u => u.id === id);
+
+  if (!usuario) {
+    return res.status(404).json({ mensaje: `Usuario con ID ${id} no encontrado` });
+  }
+  const { nombre, correo, items } = req.body;
+
+  if (nombre) usuario.nombre = nombre;
+  if (correo) usuario.correo = correo;
+  
+  if (items) {
+    if (!Array.isArray(items)) {
+      return res.status(400).json({ mensaje: 'Items debe ser un arreglo' });
+    }
+    const itemsInvalidos = items.some(itemId => !catalogoItems.find(item => item.id === itemId));
+    if (itemsInvalidos) {
+      return res.status(400).json({ mensaje: 'Uno o más items no existen en el catálogo' });
+    }
+    usuario.items = items;
+  }
+
+  res.json({ mensaje: `Usuario con ID ${id} actualizado correctamente`, usuario });
+});
+
