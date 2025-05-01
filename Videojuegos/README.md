@@ -1,44 +1,32 @@
-# 🧱 Breakout Game in JavaScript
+# Breakout en JavaScript
 
-This is a browser-based implementation of the classic **Breakout** arcade game, created using JavaScript, HTML5 Canvas, and CSS.
+Esta es una implementación en el navegador del clásico juego arcade **Breakout**, creado usando JavaScript, HTML5 Canvas y CSS.
 
-## 🎮 Features
+## Características
 
-- Paddle controlled with arrow keys (← →)
-- Ball that bounces off walls, paddle, and blocks
-- Colorful blocks that are destroyed on impact
-- Score counter showing number of blocks destroyed
-- 3 lives system — game over when lives run out
-- Victory when all blocks are cleared
-- Speed increases every 10 blocks destroyed
-- 💣 Bomb balls start falling when 10 blocks remain
-- Colliding with a bomb costs 1 life
+- Plataforma controlada con las teclas de flecha (← →)
+- Pelota que rebota en paredes, plataforma y bloques
+- Bloques de colores que se destruyen al impactar
+- Contador de bloques destruidos en pantalla
+- Sistema de 3 vidas — el juego termina al perderlas
+- Se gana al destruir todos los bloques
+- La velocidad de la pelota aumenta cada 10 bloques destruidos
+- 💣 Cuando quedan solo 10 bloques, comienzan a caer bombas
+- Si una bomba toca la plataforma, se pierde una vida
 
-## 🕹️ Controls
+## Controles
 
-| Key         | Action               |
-|-------------|----------------------|
-| ← / →       | Move paddle left/right |
-| Spacebar    | Launch the ball        |
+| Tecla        | Acción                     |
+|--------------|----------------------------|
+| ← / →        | Mover la plataforma         |
+| Barra espaciadora | Lanzar la pelota       |
 
-## 📁 Project Structure
+## Cómo Ejecutarlo
 
+1. Abre el archivo [`Breakout](https://isabelavalls14.github.io/Videojuegos/Breakout/html/index.html)` en tu navegador.
+2. ¡Juega y diviértete!
 
+## 👩‍💻 Autora
 
-## 🚀 How to Run
-
-1. Open the file `html/index.html` in your browser.
-2. Play and enjoy!
-
-> Make sure your browser allows JavaScript and HTML5 Canvas.
-
-## 🛠️ Built With
-
-- HTML5
-- JavaScript (Vanilla)
-- CSS3
-
-## 👩‍💻 Author
-
-Isabela Alonso Ruíz  
-*Inspired by Pong base code from Gilberto Echeverría (2025)*
+Isabela Valls Chavez
+*Inspirado en el código base de Pong por Gilberto Echeverría (2025)*
