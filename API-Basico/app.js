@@ -5,14 +5,12 @@ const path = require('path');
 app.use(express.static('public'));
 app.use(express.json()); 
 
+let catalogoItems = [];
+
 // Este endpoint sirve el archivo index.html cuando alguien visita "/"
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/html/index.html'));
 });
-
-// Variables para almacenar datos
-let catalogoItems = []; 
-
 // Endpoint para agregar ítems
 app.post('/items', (req, res) => {
   const nuevosItems = Array.isArray(req.body) ? req.body : [req.body];
