@@ -5,11 +5,10 @@ const path = require('path');
 app.use(express.static('public'));
 app.use(express.json()); 
 
-let catalogoItems = [];
-// let catalogoItems = [
-//   { id: 1, nombre: 'Espada', tipo: 'Arma', efecto: 'Daño alto' },
-//   { id: 2, nombre: 'Escudo', tipo: 'Defensa', efecto: 'Bloquea ataques' }
-// ];
+let catalogoItems = [
+  { id: 1, nombre: 'Espada', tipo: 'Arma', efecto: 'Daño alto' },
+  { id: 2, nombre: 'Escudo', tipo: 'Defensa', efecto: 'Bloquea ataques' }
+];
 
 // Este endpoint sirve el archivo index.html cuando alguien visita "/"
 app.get('/', (req, res) => {
@@ -58,6 +57,7 @@ app.get('/items', (req, res) => {
   res.json(catalogoItems);
 });
 
+
 app.get('/items/:id', (req, res) => {
   const id = parseInt(req.params.id);
   const item = catalogoItems.find(i => i.id === id);
@@ -67,3 +67,16 @@ app.get('/items/:id', (req, res) => {
   }
   res.json(item)
 })
+
+app.delete('/items/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const index = catalogoItems.findIndex(i => i.id === id);
+
+  if (index === -1) {
+    return res.status(404).json({ mensaje: `Item con ID ${id} no encontrado` });
+  }
+
+  catalogoItems.splice(index, 1);
+  res.json({ mensaje: `Item con ID ${id} eliminado correctamente` });
+});
+
