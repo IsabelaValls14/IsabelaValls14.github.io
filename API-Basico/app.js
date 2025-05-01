@@ -146,3 +146,22 @@ app.get('/users', (req, res) => {
 
   res.json(usuariosConItems);
 });
+app.get('/users/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const usuario = usuarios.find(u => u.id === id);
+
+  if (!usuario) {
+    return res.status(404).json({ mensaje: `Usuario con ID ${id} no encontrado` });
+  }
+
+  const itemsCompletos = usuario.items.map(itemId => {
+    return catalogoItems.find(item => item.id === itemId);
+  });
+
+  res.json({
+    id: usuario.id,
+    nombre: usuario.nombre,
+    correo: usuario.correo,
+    items: itemsCompletos
+  });
+});
