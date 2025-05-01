@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
-    <title>P O N G</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <meta charset="UTF-8">
+    <title>Breakout</title>
+    <link rel="stylesheet" href="../css/style.css">
     <script src="../js/game_classes.js"></script>
-    <script src="../js/10_pong.js"></script>
+    <script src="../js/breakout.js"></script>
 </head>
 
 <body>
-    <div id="headerContainer">
-        <h1>P O N G</h1>
+    <div id="gameContainer">
+        <header>
+            <h1>Breakout</h1>
+        </header>
+        <canvas id="canvas"></canvas>
+        <button id="backButton" onclick="history.back()">← Volver</button>
     </div>
-    <canvas id="canvas"></canvas>
-    <a href="./">
-        <button id="backButton">Back</button>
-    </a>
-    <script> main(); </script>
+    <script>main();</script>
 </body>
 
 </html>

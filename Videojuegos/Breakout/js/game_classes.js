@@ -179,3 +179,21 @@ function boxOverlap(obj1, obj2) {
 function randomRange(size, start) {
     return Math.floor(Math.random() * size) + ((start === undefined) ? 0 : start);
 }
+
+class Block extends GameObject {
+    constructor(position, width, height, color) {
+        super(position, width, height, color, "block");
+        this.destroyed = false;
+    }
+
+    draw(ctx) {
+        if (!this.destroyed) {
+            super.draw(ctx);
+        }
+    }
+}
+
+function getRandomColor() {
+    const colors = ['#f94144', '#f3722c', '#f9c74f', '#90be6d', '#43aa8b', '#577590'];
+    return colors[Math.floor(Math.random() * colors.length)];
+}
