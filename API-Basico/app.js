@@ -7,10 +7,11 @@ app.use(express.json());
 
 let catalogoItems = [
   { id: 1, nombre: 'Espada', tipo: 'Arma', efecto: 'Daño alto' },
-  { id: 2, nombre: 'Escudo', tipo: 'Defensa', efecto: 'Bloquea ataques' }];
+  { id: 2, nombre: 'Escudo', tipo: 'Defensa', efecto: 'Bloquea ataques' },
+  { id: 3, nombre: 'Arco', tipo: 'Arma', efecto: 'Daño distancia' },];
 let usuarios = [
   { id: 1, nombre: 'Isabela', correo: 'isabela@example.com', items: [1, 2] },
-  { id: 2, nombre: 'Fernando', correo: 'fernando@example.com', items: [2] }]; 
+  { id: 2, nombre: 'Fernando', correo: 'fernando@example.com', items: [3] }]; 
 
 // Este endpoint sirve el archivo index.html cuando alguien visita "/"
 app.get('/', (req, res) => {
@@ -82,6 +83,13 @@ app.delete('/items/:id', (req, res) => {
 });
 
 app.patch('/items/:id', (req, res) => {
+  const id = Number(req.params.id); 
+  const item = catalogoItems.find(i => i.id === id); 
+
+  if (!item) {
+    return res.status(404).json({ mensaje: `Item con ID ${id} no encontrado` });
+  }
+
   const { nombre, tipo, efecto } = req.body;
 
   if (nombre) item.nombre = nombre;
@@ -147,10 +155,16 @@ app.get('/users', (req, res) => {
 });
 
 app.get('/users/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const usuario = usuarios.find(u => u.id === id);
+
+  if (!usuario) {
+    return res.status(404).json({ mensaje: `Usuario con ID ${id} no encontrado` });
+  }
+
   const itemsCompletos = usuario.items.map(itemId => {
     return catalogoItems.find(item => item.id === itemId);
   });
-
   res.json({
     id: usuario.id,
     nombre: usuario.nombre,
@@ -158,6 +172,7 @@ app.get('/users/:id', (req, res) => {
     items: itemsCompletos
   });
 });
+
 
 app.delete('/users/:id', (req, res) => {
   const id = parseInt(req.params.id);

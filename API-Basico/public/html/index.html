@@ -5,12 +5,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API Videojuego</title>
-    <!-- <link rel="stylesheet" href="../css/styles.css"> -->
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 
 <body>
     <h1>Bienvenido a la API de Items y Usuarios</h1>
 
+    <section>
+        <h2>Registrar Item</h2>
+        <form id="form-item">
+            <input type="number" name="id" placeholder="ID" required />
+            <input type="text" name="nombre" placeholder="Nombre" required />
+            <input type="text" name="tipo" placeholder="Tipo" required />
+            <input type="text" name="efecto" placeholder="Efecto" required />
+            <button type="submit">Registrar Item</button>
+        </form>
+    </section>
+
+    <section>
+        <!-- si deja el id vacio muestra todos los items -->
+        <h2> Obtener Item con ID</h2> 
+        <form id="form-item2">
+            <input type="number" name="id" placeholder="ID (vacío = todos)"  />
+            <button type="submit">Obtener Item</button>
+        </form>
+        <ul id="lista-items"></ul>
+    </section>
+
+    <section>
+        <h2> Borrar Item con ID</h2>
+        <form id="form-item3">
+            <input type="number" name="id" placeholder="ID" required />
+            <button type="submit">Borrar Item</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Actualizar Item</h2>
+        <form id="form-update-item">
+            <input type="number" name="id" placeholder="ID" required />
+            <input type="text" name="nombre" placeholder="Nuevo nombre" />
+            <input type="text" name="tipo" placeholder="Nuevo tipo" />
+            <input type="text" name="efecto" placeholder="Nuevo efecto" />
+            <button type="submit">Actualizar</button>
+        </form>
+    </section>
+    
+    <section>
+        <h2>Registrar Usuario</h2>
+        <form id="form-user">
+            <input type="number" name="id" placeholder="ID" required />
+            <input type="text" name="nombre" placeholder="Nombre" required />
+            <input type="email" name="correo" placeholder="Correo" required />
+            <input type="text" name="items" placeholder="IDs de items (ej: 1,2)" />
+            <button type="submit">Registrar Usuario</button>
+        </form>
+    </section>
+
+    <section>
+        <!-- Si la forma manda un ID vacío, muestra todos los items en una lista en la página web. -->
+        <h2>Buscar Usuario</h2>
+        <form id="form-get-user">
+            <input type="number" name="id" placeholder="ID (vacío = todos)" />
+            <button type="submit">Buscar</button>
+        </form>
+        <ul id="lista-usuarios"></ul>
+    </section>
+
+    <section>
+        <h2>Eliminar Usuario</h2>
+        <form id="form-delete-user">
+            <input type="number" name="id" placeholder="ID a eliminar" required />
+            <button type="submit">Eliminar</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Actualizar Usuario</h2>
+        <form id="form-update-user">
+            <input type="number" name="id" placeholder="ID" required />
+            <input type="text" name="nombre" placeholder="Nuevo nombre" />
+            <input type="email" name="correo" placeholder="Nuevo correo" />
+            <input type="text" name="items" placeholder="IDs de items nuevos (opcional)" />
+            <button type="submit">Actualizar</button>
+        </form>
+    </section>
     <script src="../js/scripts.js"></script>
 </body>
 
