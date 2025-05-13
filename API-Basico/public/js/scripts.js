@@ -232,6 +232,93 @@ document.getElementById('form-get-user').addEventListener('submit', async (e) =>
   form.reset();
 });
 
+document.getElementById('form-delete-user').addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const form = e.target;
+  const id = form.elements['id'].value.trim();
+
+  if (!id) {
+    alert('Por favor ingresa el ID del usuario a eliminar');
+    return;
+  }
+
+  try {
+    const response = await fetch(`/users/${id}`, {
+      method: 'DELETE'
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      alert(`Usuario con ID ${id} eliminado correctamente`);
+    } else {
+      alert(`ERROR: ${result.mensaje}`);
+    }
+
+    console.log(result);
+  } catch (error) {
+    console.error('Error al hacer DELETE /users', error);
+    alert('ERROR en la solicitud');
+  }
+
+  form.reset();
+});
+
+document.getElementById('form-update-user').addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const form = e.target;
+  const id = form.elements['id'].value.trim();
+
+  if (!id) {
+    alert('Por favor ingresa el ID del usuario a actualizar');
+    return;
+  }
+
+  const payload = {};
+  const nombre = form.elements['nombre'].value.trim();
+  const correo = form.elements['correo'].value.trim();
+  const itemsRaw = form.elements['items'].value.trim();
+
+  if (nombre) payload.nombre = nombre;
+  if (correo) payload.correo = correo;
+  if (itemsRaw) {
+    payload.items = itemsRaw.split(',').map(id => parseInt(id.trim())).filter(Boolean);
+  }
+
+  if (Object.keys(payload).length === 0) {
+    alert('Debes llenar al menos un campo para actualizar');
+    return;
+  }
+
+  try {
+    const response = await fetch(`/users/${id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      alert(`Usuario con ID ${id} actualizado correctamente`);
+    } else {
+      alert(`ERROR: ${result.mensaje}`);
+    }
+
+    console.log(result);
+  } catch (error) {
+    console.error('Error al hacer PATCH /users', error);
+    alert('ERROR en la solicitud');
+  }
+
+  form.reset();
+});
+
+
+
+
 // fetch('/')
 //   .then(response => {
 //     console.log('Respuesta de /:', response.status);
